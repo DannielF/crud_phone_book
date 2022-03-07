@@ -14,12 +14,21 @@ import javax.persistence.TemporalType;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * Object Relational Mapping - ORM -
+ * Identify attributes of the table with the values inside Java
+ *
+ * @version 1.0.0
+ * @author Daniel Granados
+ * @since 1.0.0
+ */
 @Data
 @Entity
 @Table(name = "contact")
 public class Contact implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
