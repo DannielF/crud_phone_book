@@ -9,12 +9,23 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Services for Contact
+ *
+ * @version 1.0.0
+ * @author Daniel Granados
+ * @since 1.0.0
+ */
 @Service
 public class ContactService implements IContactService{
 
     @Autowired
     private ContactDao contactDao;
 
+    /**
+     * Get all contacts
+     * @return List of contacts
+     */
     @Override
     @Transactional(readOnly = true)
     public List<Contact> list() {
@@ -31,6 +42,11 @@ public class ContactService implements IContactService{
         return contacts;
     }
 
+    /**
+     * save a new contact
+     * @param contact Object
+     * @return contact
+     */
     @Override
     @Transactional
     public Contact save(Contact contact) {
@@ -47,6 +63,12 @@ public class ContactService implements IContactService{
         return cntSave;
     }
 
+    /**
+     * Update a contact
+     * @param id Long
+     * @param contact Object
+     * @return contact
+     */
     @Override
     @Transactional
     public Contact update(Long id, Contact contact) {
@@ -64,6 +86,11 @@ public class ContactService implements IContactService{
         return cntUpdate;
     }
 
+    /**
+     * Update fullName of a contact
+     * @param id Long
+     * @param contact Object
+     */
     @Transactional
     public void updateFullName(Long id, Contact contact) {
 
@@ -77,6 +104,11 @@ public class ContactService implements IContactService{
         }
     }
 
+    /**
+     * Update phone of a contact
+     * @param id Long
+     * @param contact Object
+     */
     @Transactional
     public void updatePhone(Long id, Contact contact) {
 
@@ -90,6 +122,11 @@ public class ContactService implements IContactService{
         }
     }
 
+    /**
+     * Update email of a contact
+     * @param id Long
+     * @param contact Object
+     */
     @Transactional
     public void updateEmail(Long id, Contact contact) {
 
@@ -103,6 +140,11 @@ public class ContactService implements IContactService{
         }
     }
 
+    /**
+     * Update dateOfBirth of a contact
+     * @param id Long
+     * @param contact Object
+     */
     @Transactional
     public void updateDob(Long id, Contact contact) {
 
@@ -116,6 +158,11 @@ public class ContactService implements IContactService{
         }
     }
 
+    /**
+     * UpdateAt of a contact
+     * @param id Long
+     * @param contact Object
+     */
     @Transactional
     public void updateAt( Long id, Contact contact) {
 
@@ -129,6 +176,11 @@ public class ContactService implements IContactService{
         }
     }
 
+    /**
+     * DeleteAt of a contact
+     * @param id Long
+     * @param contact Object
+     */
     @Transactional
     public void deleteAt(Long id, Contact contact) {
 
@@ -142,6 +194,10 @@ public class ContactService implements IContactService{
         }
     }
 
+    /**
+     * delete a contact
+     * @param contact Object
+     */
     @Override
     @Transactional
     public void delete(Contact contact) {
@@ -156,6 +212,11 @@ public class ContactService implements IContactService{
         }
     }
 
+    /**
+     * Find one contact
+     * @param contact Object
+     * @return contact
+     */
     @Override
     @Transactional(readOnly = true)
     public Optional<Contact> findContact(Contact contact) {

@@ -21,7 +21,11 @@ import java.util.regex.Pattern;
 
 
 /**
+ *Routes CRUD contact
  *
+ * @version 1.0.0
+ * @author Daniel Granados
+ * @since 1.0.0
  */
 @Slf4j
 @RestController
@@ -32,6 +36,10 @@ public class ContactController {
 
     private Response response = new Response();
 
+    /**
+     * Route Index
+     * @return String
+     */
     @GetMapping(path = "/")
     public Map<String, String> index() {
         var answer = new HashMap<String, String>();
@@ -39,6 +47,11 @@ public class ContactController {
         return answer;
     }
 
+    /**
+     * Route Find one contact
+     * @param contact Object
+     * @return contact
+     */
     @GetMapping("/contact/{id}")
     public Response getOne(Contact contact) {
 
@@ -54,6 +67,10 @@ public class ContactController {
         return response;
     }
 
+    /**
+     * Route get all contacts
+     * @return List of contacts
+     */
     @GetMapping(path = "/contact")
     public Response getAll() {
 
@@ -68,6 +85,11 @@ public class ContactController {
         return response;
     }
 
+    /**
+     * Route to create a contact
+     * @param contact Object
+     * @return Entity
+     */
     @PostMapping(path = "/contact")
     public ResponseEntity<Response> create(Contact contact) {
         response.data = contact;
@@ -91,6 +113,11 @@ public class ContactController {
         }
     }
 
+    /**
+     * Route to delete a contact
+     * @param contact Object
+     * @return Entity
+     */
     @DeleteMapping(path = "/contact/{id}")
     public ResponseEntity<Contact> delete(Contact contact) {
 
@@ -106,6 +133,12 @@ public class ContactController {
         }
     }
 
+    /**
+     * Route to update a contact
+     * @param contact Object
+     * @param id Long
+     * @return Entity
+     */
     @PutMapping(path = "/contact/{id}")
     public ResponseEntity<Contact> update(Contact contact, @PathVariable("id") Long id) {
 
@@ -122,6 +155,12 @@ public class ContactController {
         }
     }
 
+    /**
+     * Route to update fullName
+     * @param contact Object
+     * @param id Long
+     * @return Entity
+     */
     @PatchMapping(path = "/contact/fullName/{id}")
     public ResponseEntity<Contact> updateFullName(Contact contact, @PathVariable("id") Long id) {
 
@@ -137,6 +176,12 @@ public class ContactController {
         }
     }
 
+    /**
+     * Route to update phone
+     * @param contact Object
+     * @param id Long
+     * @return Entity
+     */
     @PatchMapping(path = "/contact/phone/{id}")
     public ResponseEntity<Contact> updatePhone(Contact contact, @PathVariable("id") Long id) {
 
@@ -152,6 +197,12 @@ public class ContactController {
         }
     }
 
+    /**
+     * Route to update email
+     * @param contact Object
+     * @param id Long
+     * @return Entity
+     */
     @PatchMapping(path = "/contact/email/{id}")
     public ResponseEntity<Contact> updateEmail(Contact contact, @PathVariable("id") Long id) {
 
@@ -167,6 +218,12 @@ public class ContactController {
         }
     }
 
+    /**
+     * Route to update dateOfBirth
+     * @param contact Object
+     * @param id long
+     * @return Entity
+     */
     @PatchMapping("/contact/dob/{id}")
     public ResponseEntity<Contact> updateDob(Contact contact, @PathVariable("id") Long id) {
 
@@ -182,6 +239,12 @@ public class ContactController {
         }
     }
 
+    /**
+     * Route to updateAt date
+     * @param contact Object
+     * @param id Long
+     * @return Entity
+     */
     @PatchMapping("/contact/updAt/{id}")
     public ResponseEntity<Contact> updateAt(Contact contact, @PathVariable("id") Long id) {
 
@@ -197,6 +260,12 @@ public class ContactController {
         }
     }
 
+    /**
+     * Route to deleteAt date
+     * @param contact Object
+     * @param id Long
+     * @return Entity
+     */
     @PatchMapping("/contact/delAt/{id}")
     public ResponseEntity<Contact> deleteAt(Contact contact, @PathVariable("id") Long id) {
 
