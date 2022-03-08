@@ -15,6 +15,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
+          <factory-entry name="crud_phone_book" />
           <factory-entry name="entityManagerFactory" value="1b73dcb6-c761-4163-955d-e21bf3bd947c" />
         </datasource-mapping>
         <naming-strategy-map />
