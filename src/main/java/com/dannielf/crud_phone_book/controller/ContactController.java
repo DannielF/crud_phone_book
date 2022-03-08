@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +30,7 @@ import java.util.regex.Pattern;
  * @since 1.0.0
  */
 @Slf4j
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class ContactController {
 
@@ -90,14 +93,15 @@ public class ContactController {
      * @param contact Object
      * @return Entity
      */
+    @CrossOrigin
     @PostMapping(path = "/contact")
-    public ResponseEntity<Response> create(Contact contact) {
+    public ResponseEntity<Response> create(@RequestBody Contact contact) {
         response.data = contact;
 
         try {
             log.info("Contact to create: {}", contact);
             contactService.save(contact);
-            return new ResponseEntity<>(response, HttpStatus.CREATED);
+            return new ResponseEntity<>( response, HttpStatus.CREATED);
 
         } catch (Exception e) {
             response.status = e.getCause().toString();
@@ -118,8 +122,9 @@ public class ContactController {
      * @param contact Object
      * @return Entity
      */
+    @CrossOrigin
     @DeleteMapping(path = "/contact/{id}")
-    public ResponseEntity<Contact> delete(Contact contact) {
+    public ResponseEntity<Contact> delete(@RequestBody Contact contact) {
 
         try {
             log.info("Contact to delete: {}", contact);
@@ -139,8 +144,9 @@ public class ContactController {
      * @param id Long
      * @return Entity
      */
+    @CrossOrigin
     @PutMapping(path = "/contact/{id}")
-    public ResponseEntity<Contact> update(Contact contact, @PathVariable("id") Long id) {
+    public ResponseEntity<Contact> update(@RequestBody Contact contact, @PathVariable("id") Long id) {
 
         try {
             log.info("Contact to update: {}", contact);
@@ -161,8 +167,9 @@ public class ContactController {
      * @param id Long
      * @return Entity
      */
+    @CrossOrigin
     @PatchMapping(path = "/contact/fullName/{id}")
-    public ResponseEntity<Contact> updateFullName(Contact contact, @PathVariable("id") Long id) {
+    public ResponseEntity<Contact> updateFullName(@RequestBody Contact contact, @PathVariable("id") Long id) {
 
         try {
             log.info("Contact, new fullName: {}", contact);
@@ -182,8 +189,9 @@ public class ContactController {
      * @param id Long
      * @return Entity
      */
+    @CrossOrigin
     @PatchMapping(path = "/contact/phone/{id}")
-    public ResponseEntity<Contact> updatePhone(Contact contact, @PathVariable("id") Long id) {
+    public ResponseEntity<Contact> updatePhone(@RequestBody Contact contact, @PathVariable("id") Long id) {
 
         try {
             log.info("Contact, new phone: {}", contact);
@@ -203,8 +211,9 @@ public class ContactController {
      * @param id Long
      * @return Entity
      */
+    @CrossOrigin
     @PatchMapping(path = "/contact/email/{id}")
-    public ResponseEntity<Contact> updateEmail(Contact contact, @PathVariable("id") Long id) {
+    public ResponseEntity<Contact> updateEmail(@RequestBody Contact contact, @PathVariable("id") Long id) {
 
         try {
             log.info("Contact, new email: {}", contact);
@@ -224,8 +233,9 @@ public class ContactController {
      * @param id long
      * @return Entity
      */
+    @CrossOrigin
     @PatchMapping("/contact/dob/{id}")
-    public ResponseEntity<Contact> updateDob(Contact contact, @PathVariable("id") Long id) {
+    public ResponseEntity<Contact> updateDob(@RequestBody Contact contact, @PathVariable("id") Long id) {
 
         try {
             log.info("Contact, new date of birth: {}", contact);
@@ -245,8 +255,9 @@ public class ContactController {
      * @param id Long
      * @return Entity
      */
+    @CrossOrigin
     @PatchMapping("/contact/updAt/{id}")
-    public ResponseEntity<Contact> updateAt(Contact contact, @PathVariable("id") Long id) {
+    public ResponseEntity<Contact> updateAt(@RequestBody Contact contact, @PathVariable("id") Long id) {
 
         try {
             log.info("Contact, has been updated: {}", contact);
@@ -266,8 +277,9 @@ public class ContactController {
      * @param id Long
      * @return Entity
      */
+    @CrossOrigin
     @PatchMapping("/contact/delAt/{id}")
-    public ResponseEntity<Contact> deleteAt(Contact contact, @PathVariable("id") Long id) {
+    public ResponseEntity<Contact> deleteAt(@RequestBody Contact contact, @PathVariable("id") Long id) {
 
         try {
             log.info("Contact, logical delete: {}", contact);

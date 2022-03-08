@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,9 +36,8 @@ public class ContactService implements IContactService{
             contacts = (List<Contact>) contactDao.findAll();
 
         } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
-            e.getLocalizedMessage();
+           e.getLocalizedMessage();
+           throw e;
         }
         return contacts;
     }
@@ -56,9 +56,8 @@ public class ContactService implements IContactService{
             cntSave = contactDao.save(contact);
 
         } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
             e.getLocalizedMessage();
+            throw e;
         }
         return cntSave;
     }
@@ -79,9 +78,8 @@ public class ContactService implements IContactService{
             cntUpdate = contactDao.save(contact);
 
         } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
             e.getLocalizedMessage();
+            throw e;
         }
         return cntUpdate;
     }
@@ -98,9 +96,8 @@ public class ContactService implements IContactService{
             contactDao.updateFullName( id, contact.getFullName());
 
         } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
             e.getLocalizedMessage();
+            throw e;
         }
     }
 
@@ -116,9 +113,8 @@ public class ContactService implements IContactService{
             contactDao.updatePhone( id, contact.getPhone());
 
         } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
             e.getLocalizedMessage();
+            throw e;
         }
     }
 
@@ -134,9 +130,8 @@ public class ContactService implements IContactService{
             contactDao.updateEmail( id, contact.getEmail());
 
         } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
             e.getLocalizedMessage();
+            throw e;
         }
     }
 
@@ -152,9 +147,8 @@ public class ContactService implements IContactService{
             contactDao.updateDob( id, contact.getDateOfBirth());
 
         } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
             e.getLocalizedMessage();
+            throw e;
         }
     }
 
@@ -170,9 +164,8 @@ public class ContactService implements IContactService{
             contactDao.updateAt( id, contact.getUpdateAt());
 
         } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
             e.getLocalizedMessage();
+            throw e;
         }
     }
 
@@ -188,9 +181,8 @@ public class ContactService implements IContactService{
             contactDao.deleteAt( id, contact.getDeleteAt());
 
         } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
             e.getLocalizedMessage();
+            throw e;
         }
     }
 
@@ -206,9 +198,8 @@ public class ContactService implements IContactService{
             contactDao.delete(contact);
 
         } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
             e.getLocalizedMessage();
+            throw e;
         }
     }
 
@@ -226,9 +217,8 @@ public class ContactService implements IContactService{
             cntFound = contactDao.findById(contact.getId());
 
         } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
             e.getLocalizedMessage();
+            throw e;
         }
         return cntFound;
     }
