@@ -7,8 +7,8 @@ create table if not exists phone_book.contact (
     cnt_phone varchar(13) not null,
     cnt_email varchar(80) null,
     cnt_dob datetime null,
-    create_at datetime default now(),
-    update_at datetime null,
+    create_at datetime default current_timestamp,
+    update_at datetime null on update current_timestamp,
     delete_at datetime null,
     primary key (cnt_id),
     unique index cnt_phone_name (cnt_phone asc, cnt_full_name asc) visible
