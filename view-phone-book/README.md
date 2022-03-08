@@ -36,4 +36,4 @@ Here, you will find the views to the phone book CRUD app.
 - [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
 
 ## current state of the app
-![](https://github.com/DannielF/crud_phone_book/tree/frontend/view-phone-book/src/assets/phoneBook.png)
+![](https://github.com/DannielF/crud_phone_book/blob/frontend/view-phone-book/src/assets/phoneBook.png?raw=true)
