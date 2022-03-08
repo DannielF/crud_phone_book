@@ -58,6 +58,10 @@
 </script>
 
 <style>
+  .info{
+    margin-block-start: 10px;
+    padding-inline: 30px
+  }
   table {
     border-collapse: collapse;
     width: 100%;
