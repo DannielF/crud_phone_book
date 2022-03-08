@@ -14,15 +14,13 @@
         <td>Email</td>
         <td>Date of birth</td>
       </tr>
-      <template v-for="cnt in data">
-        <tr>
-          <td>{{cnt.id}}</td>
-          <td>{{cnt.fullName}}</td>
-          <td>{{cnt.phone}}</td>
-          <td>{{cnt.email}}</td>
-          <td>{{cnt.dateOfBirth}}</td>
-        </tr>
-      </template>
+      <tr v-if="data.data">
+          <td>{{data.data.id}}</td>
+          <td>{{data.data.fullName}}</td>
+          <td>{{data.data.phone}}</td>
+          <td>{{data.data.email}}</td>
+          <td>{{data.data.dateOfBirth}}</td>
+      </tr>
     </table>
   </div>
 </template>

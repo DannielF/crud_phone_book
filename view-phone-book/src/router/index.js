@@ -11,6 +11,12 @@ import phone from '../views/patchPhone.vue'
 import email from '../views/patchEmail.vue'
 import DateOfBirth from '../views/patchDob.vue'
 
+/**
+ * Routes CRUD phone book
+ * @version 1.0.0 
+ * @author Daniel Granados
+ * @since 1.0.0
+ */
 const routes = [
   {
     path: '/',
@@ -64,6 +70,9 @@ const routes = [
   }
 ];
 
+/**
+ * Create router
+ */
 const router = createRouter({
   history: createWebHistory(),
   routes: routes,
