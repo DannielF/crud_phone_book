@@ -22,5 +22,7 @@
 }
 a {
   margin: 0 5px;
+  text-decoration: none;
+  font-weight: bold;
 }
 </style>

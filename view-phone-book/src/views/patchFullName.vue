@@ -10,24 +10,8 @@
     <input type="text" id="id" v-model="id" placeholder="id">
     <label for="fullName"></label>
     <input type="text" id="fullName" v-model="fullName" placeholder="fullName" required>
-    <button type="button" @click="updateFullName">Update contact</button>
+    <button type="button" @click="updateFullName">Update fullName</button>
   </form>
-  <div class="info">
-    <table>
-      <tr v-if="data.data">
-        <td>Id</td>
-        <td>Full name</td>
-        <td>Phone</td>
-        <td>Email</td>
-        <td>Date of birth</td>
-      </tr>
-      <template v-for="cnt in data">
-        <tr>
-          <td>{{cnt}}</td>
-        </tr>
-      </template>
-    </table>
-  </div>
 </template>
 
 <script>
