@@ -11,6 +11,26 @@
     <input type="date" id="dateOfBirth" v-model="dateOfBirth" placeholder="dateOfBirth" required>
     <button type="button" @click="addContact">Add contact</button>
   </form>
+  <div class="info">
+    <table>
+      <tr v-if="data.data">
+        <td>Id</td>
+        <td>Full name</td>
+        <td>Phone</td>
+        <td>Email</td>
+        <td>Date of birth</td>
+      </tr>
+      <template v-for="cnt in data">
+        <tr>
+          <td>{{cnt.id}}</td>
+          <td>{{cnt.fullName}}</td>
+          <td>{{cnt.phone}}</td>
+          <td>{{cnt.email}}</td>
+          <td>{{cnt.dateOfBirth}}</td>
+        </tr>
+      </template>
+    </table>
+  </div>
 </template>
 
 <script>
@@ -22,7 +42,8 @@ const API = "http://localhost:8080/contact";
         fullName: this.fullName,
         phone: this.phone,
         email: this.email,
-        dateOfBirth: this.dateOfBirth
+        dateOfBirth: this.dateOfBirth,
+        data: []
       }
     },
     methods: {

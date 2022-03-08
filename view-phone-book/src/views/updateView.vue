@@ -7,6 +7,8 @@
   <router-view></router-view>
 
   <form action="" id="formUpdate">
+    <label for="id"></label>
+    <input type="text" id="id" v-model="id" placeholder="id" required>
     <label for="fullName"></label>
     <input type="text" id="fullName" v-model="fullName" placeholder="fullName" required>
     <label for="phone"></label>
@@ -17,30 +19,49 @@
     <input type="date" id="dateOfBirth" v-model="dateOfBirth" placeholder="dateOfBirth" required>
     <button type="button" @click="addContact">Update contact</button>
   </form>
+  <div class="info">
+    <table>
+      <tr v-if="data.id">
+        <td>Id</td>
+        <td>Full name</td>
+        <td>Phone</td>
+        <td>Email</td>
+        <td>Date of birth</td>
+      </tr>
+      <tr>
+        <td>{{data.id}}</td>
+        <td>{{data.fullName}}</td>
+        <td>{{data.phone}}</td>
+        <td>{{data.email}}</td>
+        <td>{{data.dateOfBirth}}</td>
+      </tr>
+    </table>
+  </div>
 </template>
 
 <script>
-const API = "http://localhost:8080/contact";
+const API = "http://localhost:8080/contact/";
 
   export default {
     data() {
       return {
-        fullName: this.fullName,
-        phone: this.phone,
-        email: this.email,
-        dateOfBirth: this.dateOfBirth
+        id: null,
+        fullName: '',
+        phone: '',
+        email: '',
+        dateOfBirth: null,
+        data: []
       }
     },
     methods: {
       async addContact() {
-        const apiUrl = `${API}`;
+        const apiUrl = `${API}${this.id}`;
         const options = {
           method: "PUT",
           mode: "cors",
           headers: {
             "Content-Type": "application/json"
           },
-          credentials: "same-origin",
           body: JSON.stringify({
             fullName: this.fullName,
             phone: this.phone,
@@ -64,5 +85,8 @@ const API = "http://localhost:8080/contact";
 <style>
 #formUpdate {
   margin-block-start: 30px;
+}
+.info {
+  margin-block-start: 50px;
 }
 </style>
